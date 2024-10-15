@@ -6,7 +6,7 @@ function calculate () {
     const selectedRadio = document.querySelector('input[name="operator"]:checked');
 
     if (selectedRadio == null) {
-        alert("Please choose an operator!");
+        alert("Hãy chọn 1 phép tính!!!");
         return;
     }
     else if (selectedRadio.value === "add") {
