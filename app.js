@@ -9,7 +9,12 @@ function calculate () {
         alert("Hãy chọn 1 phép tính!!!");
         return;
     }
-    else if (selectedRadio.value === "add") {
+    if (isNaN(input1) || isNaN(input2)) {
+        output.value = "Dữ liệu không hợp lệ";
+        return;
+    }
+
+    if (selectedRadio.value === "add") {
         result = input1 + input2;
     }
     else if (selectedRadio.value === "subtract") {
@@ -21,21 +26,16 @@ function calculate () {
     else if (selectedRadio.value === "divide") {
         if (input2 === 0) {
             alert("Không thể chia cho 0")
+            return;
         }
         result = input1 / input2;
     }
-    const regex = /^[0-9]+$/; 
-    if(!regex.test(result)) {
-        output.value = "Không thể tính"
-    }
-    else {
-        output.value = result;
-    }
+    output.value = result;
 }
 
 function validateInput1() {
     const input1 = document.getElementById("input1").value;
-    const regex = /^[0-9]+$/; 
+    const regex = /^-?\d+(\.\d+)?([eE][+-]?\d+)?$/;
 
     if (input1 === "") {}
     else if (!regex.test(input1)) {
@@ -45,7 +45,7 @@ function validateInput1() {
 
 function validateInput2() {
     const input2 = document.getElementById("input2").value;
-    const regex = /^[0-9]+$/;
+    const regex = /^-?\d+(\.\d+)?([eE][+-]?\d+)?$/;
 
 
     if (input2 === "") {}
