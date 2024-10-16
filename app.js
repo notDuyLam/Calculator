@@ -10,7 +10,7 @@ function calculate () {
         return;
     }
     if (isNaN(input1) || isNaN(input2)) {
-        output.value = "Dữ liệu không hợp lệ";
+        alert("Dữ liệu không hợp lệ");
         return;
     }
 
